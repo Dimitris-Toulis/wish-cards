@@ -1,0 +1,3 @@
+name = "bday-cards"
+compatibility_date = "2025-04-03"
+main = "./src/workers/main.ts"

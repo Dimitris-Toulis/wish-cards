@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Create a birthday card</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="title">Create a birthday card</h1>
+			<form>
+				<fieldset>
+					<label for="inp-name">Name</label>
+					<input type="text" id="inp-name" placeholder="Name" />
+				</fieldset>
+				<fieldset>
+					<label for="inp-message">Message</label>
+					<textarea
+						name="message"
+						placeholder="Write a small message for the recipient!"
+						aria-label="Message"
+						maxlength="150"
+					></textarea>
+				</fieldset>
+				<h2>Card customization</h2>
+				<fieldset class="center">
+					<input type="radio" id="simple-mode" name="mode" checked />
+					<label for="simple-mode">Simple</label>
+					<input type="radio" id="advanced-mode" name="mode" />
+					<label for="advanced-mode">Advanced</label>
+				</fieldset>
+				<fieldset>
+					<h3>Effects</h3>
+					<label>
+						<input name="confetti" type="checkbox" role="switch" checked />
+						Confetti
+					</label>
+					<label>
+						<input
+							name="emoji-confetti"
+							type="checkbox"
+							role="switch"
+							checked
+						/>
+						Emoji confetti
+					</label>
+					<label>
+						<input name="ballons" type="checkbox" role="switch" checked />
+						Ballons
+					</label>
+				</fieldset>
+				<div role="group">
+					<button>Create!</button>
+					<button class="secondary">Preview</button>
+				</div>
+			</form>
+		</div>
+		<script type="module" src="/src/create.ts"></script>
+	</body>
+</html>
