@@ -1,0 +1,50 @@
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	display: flex;
+	place-items: center;
+	justify-content: center;
+	height: 100dvh;
+	flex-direction: column;
+}
+.wish {
+	font-size: clamp(4rem, 13vw, 7rem);
+	text-align: center;
+	animation: wish-rainbow 1s linear infinite;
+	color: #e74b1a;
+}
+@keyframes wish-rainbow {
+	from {
+		filter: hue-rotate(0deg);
+	}
+	to {
+		filter: hue-rotate(360deg);
+	}
+}
+.effects {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.effect {
+	outline: none;
+	border: none;
+	background-color: #3c71f7;
+	color: white;
+	padding-block: 12px;
+	padding-inline: 18px;
+	font-size: 2rem;
+	border-radius: 10px;
+
+	cursor: pointer;
+	transition: 0.4s background-color;
+}
+.effect:hover {
+	background-color: #1d59d0;
+}
+.effect:active {
+	background-color: #184eb8;
+	box-shadow: inset 0px 0px 6px #0f2d70;
+}
