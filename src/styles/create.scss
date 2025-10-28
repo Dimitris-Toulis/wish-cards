@@ -11,3 +11,22 @@
 	justify-content: center;
 	align-items: center;
 }
+.nested{
+	margin-inline-start: 3rem;
+	margin-block-end: 5px;
+	display: none;
+	label:has(input:checked) + & {
+		display: block;
+	}
+}
+.color-choice{
+	display: flex;
+	align-items: center;
+	margin-block-end: 16px;
+}
+input[type="color"]{
+	max-width: 200px;
+	.color-choice & {
+		margin: 0;
+	}
+}

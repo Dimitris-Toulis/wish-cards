@@ -9,50 +9,131 @@
 	<body>
 		<div class="container">
 			<h1 class="title">Create a birthday card</h1>
-			<form>
-				<fieldset>
-					<label for="inp-name">Name</label>
-					<input type="text" id="inp-name" placeholder="Name" />
-				</fieldset>
-				<fieldset>
-					<label for="inp-message">Message</label>
-					<textarea
-						name="message"
-						placeholder="Write a small message for the recipient!"
-						aria-label="Message"
-						maxlength="150"
-					></textarea>
-				</fieldset>
+			<form id="card-form">
+				<label for="inp-wish">Wish</label>
+				<input
+					type="text"
+					id="inp-wish"
+					name="wish"
+					placeholder="Happy birthday Joe!"
+					value="Happy birthday!"
+					required
+					minlength="1"
+					maxlength="100"
+				/>
+				<label for="inp-message">Message</label>
+				<textarea
+					name="message"
+					id="inp-message"
+					placeholder="Write a small message for the recipient!"
+					aria-label="Message"
+					maxlength="250"
+				></textarea>
+				<hr />
 				<h2>Card customization</h2>
-				<fieldset class="center">
-					<input type="radio" id="simple-mode" name="mode" checked />
-					<label for="simple-mode">Simple</label>
-					<input type="radio" id="advanced-mode" name="mode" />
-					<label for="advanced-mode">Advanced</label>
-				</fieldset>
-				<fieldset>
+				<div>
+					<label for="wishColor">Wish Color</label>
+					<div class="color-choice">
+						<label>
+							<input
+								name="wishColorType"
+								type="radio"
+								checked
+								id="rainbow-wish"
+								value="rainbow"
+							/>
+							Rainbow</label
+						>
+					</div>
+					<div class="color-choice">
+						<input name="wishColorType" type="radio" value="color" />
+						<input
+							type="color"
+							name="wishColor"
+							id="wishColor"
+							value="#ff9500"
+						/>
+					</div>
+					<label for="bgColor">Background Color</label>
+					<input type="color" name="bgColor" id="bgColor" value="#ffffff" />
 					<h3>Effects</h3>
+
 					<label>
 						<input name="confetti" type="checkbox" role="switch" checked />
 						Confetti
 					</label>
+					<div class="nested">
+						<label>
+							<input
+								name="confetti-onOpen"
+								type="checkbox"
+								role="switch"
+								checked
+							/>
+							Start on open
+						</label>
+						<label>
+							Amount
+							<input
+								type="number"
+								name="confetti-amount"
+								placeholder="Confetti Amount"
+								aria-label="Confetti Amount"
+								value="1500"
+								min="100"
+								max="3000"
+							/>
+						</label>
+					</div>
+
 					<label>
-						<input
-							name="emoji-confetti"
-							type="checkbox"
-							role="switch"
-							checked
-						/>
-						Emoji confetti
+						<input name="fireworks" type="checkbox" role="switch" checked />
+						Fireworks
 					</label>
+					<div class="nested">
+						<label>
+							<input name="fireworks-onOpen" type="checkbox" role="switch" />
+							Start on open
+						</label>
+						<label>
+							<input
+								name="fireworks-sound"
+								type="checkbox"
+								role="switch"
+								checked
+							/>
+							Sound
+						</label>
+					</div>
+
 					<label>
-						<input name="ballons" type="checkbox" role="switch" checked />
-						Ballons
+						<input name="balloons" type="checkbox" role="switch" checked />
+						Balloons
 					</label>
-				</fieldset>
+					<div class="nested">
+						<label>
+							<input name="balloons-onOpen" type="checkbox" role="switch" />
+							Start on open
+						</label>
+						<label>
+							Amount
+							<input
+								type="number"
+								name="balloon-amount"
+								placeholder="Balloon Amount"
+								aria-label="Balloon Amount"
+								value="30"
+								min="1"
+								max="60"
+							/>
+						</label>
+					</div>
+				</div>
 				<div role="group">
-					<button>Create!</button>
-					<button class="secondary">Preview</button>
+					<button type="submit">Create!</button>
+					<button class="secondary" id="preview-btn" type="button">
+						Preview
+					</button>
 				</div>
 			</form>
 		</div>
