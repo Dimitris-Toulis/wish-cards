@@ -27,18 +27,11 @@ const EFFECTS = {
 	}
 };
 
-async function loadEffect(name: keyof typeof EFFECTS, onOpen: boolean) {
+async function loadEffect(name: keyof typeof EFFECTS) {
 	const module: { effect: () => Promise<void> } = await import(
 		`./effects/${EFFECTS[name].script}.ts`
 	);
-
-	if (onOpen) module.effect();
-
-	const effectBtn = document.createElement("button");
-	effectBtn.classList.add("effect");
-	effectBtn.textContent = EFFECTS[name].btnText;
-	effectBtn.addEventListener("click", () => module.effect());
-	document.getElementById("effects")?.appendChild(effectBtn);
+	return module.effect;
 }
 
 function textColorBasedOnBackground(bgColor: string) {
@@ -70,13 +63,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 		wishElement.style.color = config.textColor;
 	}
 
-	await Promise.allSettled(
-		config.effects.map(({ name, onOpen }) => {
-			if (Object.hasOwn(EFFECTS, name))
-				return loadEffect(name as keyof typeof EFFECTS, onOpen);
-			else {
-				return Promise.resolve(null);
+	const effects = await Promise.allSettled(
+		config.effects.map(async ({ name, onOpen }) => {
+			if (Object.hasOwn(EFFECTS, name)) {
+				const effect = await loadEffect(name as keyof typeof EFFECTS);
+				if (onOpen) effect();
+				return effect;
+			} else {
+				return Promise.reject(null);
 			}
 		})
 	);
+
+	for (let i = 0; i < effects.length; i++) {
+		const effectResult = effects[i];
+		if (effectResult.status == "rejected") continue;
+
+		const effectBtn = document.createElement("button");
+		effectBtn.classList.add("effect");
+		effectBtn.textContent =
+			EFFECTS[config.effects[i].name as keyof typeof EFFECTS].btnText;
+		effectBtn.addEventListener("click", () => effectResult.value());
+		document.getElementById("effects")?.appendChild(effectBtn);
+	}
 });
