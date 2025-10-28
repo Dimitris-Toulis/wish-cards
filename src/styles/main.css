@@ -6,12 +6,14 @@ body {
 	justify-content: center;
 	height: 100dvh;
 	flex-direction: column;
+	gap: 20px;
 }
-.wish {
+#wish {
 	font-size: clamp(4rem, 13vw, 7rem);
 	text-align: center;
 	animation: wish-rainbow 1s linear infinite;
 	color: #e74b1a;
+	margin: 0;
 }
 @keyframes wish-rainbow {
 	from {
@@ -21,7 +23,11 @@ body {
 		filter: hue-rotate(360deg);
 	}
 }
-.effects {
+#message {
+	text-align: center;
+	font-size: clamp(1rem, 4vw, 1.7rem);
+}
+#effects {
 	display: flex;
 	flex-direction: row;
 	gap: 10px;
@@ -35,9 +41,9 @@ body {
 	color: white;
 	padding-block: 12px;
 	padding-inline: 18px;
-	font-size: 2rem;
 	border-radius: 10px;
 
+	font-size: clamp(1.2rem, 4vw, 2rem);
 	cursor: pointer;
 	transition: 0.4s background-color;
 }
