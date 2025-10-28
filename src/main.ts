@@ -6,7 +6,8 @@ let config = {
 	bgColor: "#00f0ff",
 	textColor: "#ff0000",
 	effects: [
-		{ name: "confetti", onOpen: true },
+		{ name: "confetti", onOpen: false },
+		{ name: "fireworks", onOpen: false },
 		{ name: "balloons", onOpen: false }
 	]
 };
@@ -15,6 +16,10 @@ const EFFECTS = {
 	confetti: {
 		btnText: "Confetti!",
 		script: "confetti"
+	},
+	fireworks: {
+		btnText: "Fireworks!",
+		script: "fireworks"
 	},
 	balloons: {
 		btnText: "Balloons!",

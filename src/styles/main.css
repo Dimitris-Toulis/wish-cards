@@ -6,7 +6,6 @@ body {
 	justify-content: center;
 	height: 100dvh;
 	flex-direction: column;
-	gap: 20px;
 }
 #wish {
 	font-size: clamp(4rem, 13vw, 7rem);
@@ -33,6 +32,7 @@ body {
 	gap: 10px;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-block-start: 20px;
 }
 .effect {
 	outline: none;
