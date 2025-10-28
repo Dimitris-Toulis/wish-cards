@@ -1,3 +1,4 @@
+import { showMessage } from "./modal";
 import "./styles/create.scss";
 
 function getConfig(form: HTMLFormElement) {
@@ -27,14 +28,35 @@ function getConfig(form: HTMLFormElement) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("card-form")?.addEventListener("submit", (e) => {
-		e.preventDefault();
-		const form = e.target as HTMLFormElement;
-		if (!form.checkValidity()) return;
+	document
+		.getElementById("card-form")
+		?.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			const form = e.target as HTMLFormElement;
+			if (!form.checkValidity()) return;
 
-		const config = getConfig(form);
-		console.log(config);
-	});
+			const config = getConfig(form);
+			const result: { error: any } | { id: string } = await (
+				await fetch("/api/create", {
+					method: "POST",
+					body: JSON.stringify(config)
+				})
+			).json();
+			if ("error" in result) {
+				showMessage(
+					"Error",
+					`<p>There was an error while making your card: ${result.error.message}</p>`
+				);
+			} else {
+				showMessage(
+					"Card Created",
+					`<p>Your card has been created!</p>
+					<p>Send this link to the recipient: </p><a href="${
+						window.origin + "/?" + result.id
+					}" target="_blank">${window.origin + "/?" + result.id}</a>`
+				);
+			}
+		});
 	document.getElementById("preview-btn")?.addEventListener("click", () => {
 		const form = document.getElementById("card-form")! as HTMLFormElement;
 		if (!form.checkValidity()) return;

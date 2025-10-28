@@ -19,6 +19,8 @@
 	"dependencies": {
 		"@picocss/pico": "^2.1.1",
 		"@tsparticles/confetti": "^3.9.1",
-		"@tsparticles/fireworks": "^3.9.1"
+		"@tsparticles/fireworks": "^3.9.1",
+		"nanoid": "^5.1.6",
+		"zod": "^4.1.12"
 	}
 }
