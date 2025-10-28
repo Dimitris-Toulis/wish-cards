@@ -11,8 +11,8 @@ body {
 #wish {
 	font-size: clamp(4rem, 13vw, 7rem);
 	text-align: center;
-	animation: wish-rainbow 1s linear infinite;
-	color: #e74b1a;
+	/*animation: wish-rainbow 1s linear infinite;
+	color: #e74b1a;*/
 	margin: 0;
 }
 @keyframes wish-rainbow {
@@ -53,4 +53,19 @@ body {
 .effect:active {
 	background-color: #184eb8;
 	box-shadow: inset 0px 0px 6px #0f2d70;
+}
+@media (prefers-reduced-motion: reduce) {
+	#wish {
+		animation: none !important;
+	}
+	.effect {
+		transition: none !important;
+		&:hover {
+			background-color: #3c71f7;
+		}
+		&:active {
+			box-shadow: none !important;
+			background-color: #184eb8;
+		}
+	}
 }
