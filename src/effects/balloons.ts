@@ -21,8 +21,8 @@ function getRandomStyles() {
   	`;
 }
 
-export async function effect() {
-	const amount = 30;
+export async function effect(opts: { amount?: number }) {
+	const amount = opts.amount ?? 30;
 	const animations = [];
 	const balloons = [];
 	for (let i = 0; i < amount; i++) {

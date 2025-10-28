@@ -3,11 +3,12 @@ import { confetti } from "@tsparticles/confetti";
 const getRandomInRange = (min: number, max: number) =>
 	Math.random() * (max - min) + min;
 
-export async function effect() {
+export async function effect(opts: { amount?: number }) {
+	const multiplier = opts.amount ? opts.amount / 1500 : 1;
 	for (let i = 0; i < 15; i++) {
 		const options = {
 			angle: 30,
-			count: getRandomInRange(50, 100),
+			count: getRandomInRange(50, 100) * multiplier,
 			position: {
 				x: 0,
 				y: getRandomInRange(40, 60)
