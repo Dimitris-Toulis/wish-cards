@@ -1,18 +1,62 @@
 @use "@picocss/pico/scss/pico" with (
-	$theme-color: "pumpkin"
+	$theme-color: "pumpkin",
+	$modules: (
+		// Layout
+		"layout/document": true,
+		"layout/landmarks": false,
+		"layout/container": true,
+		"layout/section": false,
+		"layout/grid": false,
+		"layout/overflow-auto": false,
+
+		// Content
+		"content/link": false,
+		"content/typography": true,
+		"content/embedded": false,
+		"content/button": true,
+		"content/table": false,
+		"content/code": false,
+		"content/figure": false,
+		"content/misc": false,
+
+		// Forms
+		"forms/basics": false,
+		"forms/checkbox-radio-switch": false,
+		"forms/input-color": false,
+		"forms/input-date": false,
+		"forms/input-file": false,
+		"forms/input-range": false,
+		"forms/input-search": false,
+
+		// Components
+		"components/accordion": false,
+		"components/card": false,
+		"components/dropdown": false,
+		"components/group": false,
+		"components/loading": false,
+		"components/modal": false,
+		"components/nav": false,
+		"components/progress": false,
+		"components/tooltip": false,
+
+		// Utilities
+		"utilities/accessibility": false,
+		"utilities/reduce-motion": false
+	)
 );
-body{
+
+body {
 	padding-block-start: 20px;
 }
-h1{
+h1 {
 	text-align: center;
 }
-.container{
+.container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-img{
+img {
 	border-radius: 20px;
 	margin-block-end: 40px;
 }

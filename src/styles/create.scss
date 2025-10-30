@@ -1,17 +1,61 @@
 @use "@picocss/pico/scss/pico" with (
-	$theme-color: "pumpkin"
+	$theme-color: "pumpkin",
+	$modules: (
+
+		// Layout
+		"layout/document": true,
+		"layout/landmarks": true,
+		"layout/container": true,
+		"layout/section": false,
+		"layout/grid": false,
+		"layout/overflow-auto": true,
+
+		// Content
+		"content/link": true,
+		"content/typography": true,
+		"content/embedded": false,
+		"content/button": true,
+		"content/table": false,
+		"content/code": false,
+		"content/figure": false,
+		"content/misc": true,
+
+		// Forms
+		"forms/basics": true,
+		"forms/checkbox-radio-switch": true,
+		"forms/input-color": true,
+		"forms/input-date": false,
+		"forms/input-file": false,
+		"forms/input-range": false,
+		"forms/input-search": false,
+
+		// Components
+		"components/accordion": false,
+		"components/card": true,
+		"components/dropdown": false,
+		"components/group": true,
+		"components/loading": false,
+		"components/modal": true,
+		"components/nav": false,
+		"components/progress": false,
+		"components/tooltip": false,
+
+		// Utilities
+		"utilities/accessibility": true,
+		"utilities/reduce-motion": false
+	)
 );
 
 .title {
 	text-align: center;
 	margin-block-start: 1rem;
 }
-.center{
+.center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.nested{
+.nested {
 	margin-inline-start: 3rem;
 	margin-block-end: 5px;
 	display: none;
@@ -19,12 +63,12 @@
 		display: block;
 	}
 }
-.color-choice{
+.color-choice {
 	display: flex;
 	align-items: center;
 	margin-block-end: 16px;
 }
-input[type="color"]{
+input[type="color"] {
 	max-width: 200px;
 	.color-choice & {
 		margin: 0;
