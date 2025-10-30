@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			const config = getConfig(form);
 			const result: { error: any } | { id: string } = await (
-				await fetch("/api/create", {
+				await fetch("/api/card", {
 					method: "POST",
 					body: JSON.stringify(config)
 				})
