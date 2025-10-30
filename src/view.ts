@@ -1,4 +1,4 @@
-import "./styles/main.css";
+import "./styles/view.css";
 import type { Config } from "./workers/main";
 /*{
 	wish: "Happy birthday!",
@@ -89,13 +89,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 	wishElement.textContent = config.wish;
 
 	document.title = config.wish;
-	if (config.message)
+	if (config.message) {
 		document.getElementById("message")!.textContent = config.message;
-
+		document.getElementById("message")!.style.color =
+			textColorBasedOnBackground(config.bgColor);
+	} else {
+		document.getElementById("message")!.remove();
+	}
 	document.body.style.backgroundColor = config.bgColor;
-	document.getElementById("message")!.style.color = textColorBasedOnBackground(
-		config.bgColor
-	);
 	if (config.wishColor == "rainbow") {
 		wishElement.style.animation = "wish-rainbow 1s linear infinite";
 		wishElement.style.color = "#e74b1a";

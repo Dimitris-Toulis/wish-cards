@@ -1,0 +1,18 @@
+@use "@picocss/pico/scss/pico" with (
+	$theme-color: "pumpkin"
+);
+body{
+	padding-block-start: 20px;
+}
+h1{
+	text-align: center;
+}
+.container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+img{
+	border-radius: 20px;
+	margin-block-end: 40px;
+}

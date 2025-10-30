@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
 					"Card Created",
 					`<p>Your card has been created!</p>
 					<p>Send this link to the recipient: </p><a href="${
-						window.origin + "/?" + result.id
-					}" target="_blank">${window.origin + "/?" + result.id}</a>`
+						window.origin + "/v?" + result.id
+					}" target="_blank">${window.origin + "/v?" + result.id}</a>`
 				);
 			}
 		});
@@ -63,6 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		const config = getConfig(form);
 		window.location.href =
-			window.origin + "/?config=" + encodeURIComponent(JSON.stringify(config));
+			window.origin + "/v?config=" + encodeURIComponent(JSON.stringify(config));
 	});
 });
