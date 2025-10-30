@@ -1,5 +1,9 @@
-name = "bday-cards"
-compatibility_date = "2025-04-03"
+name = "wish-cards"
+compatibility_date = "2025-09-15"
 main = "./src/workers/main.ts"
 
-kv_namespaces = [{ binding = "KV", id = "06779da6940b431db6e566b4846d64db" }]
+kv_namespaces = [{ binding = "KV", id = "cd4f3c8ca90849d0b346d9566beaa241" }]
+
+[[routes]]
+pattern = "cards.toulis.net"
+custom_domain = true
