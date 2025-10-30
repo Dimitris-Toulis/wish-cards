@@ -87,6 +87,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	const wishElement = document.getElementById("wish")!;
 	wishElement.textContent = config.wish;
+
+	document.title = config.wish;
 	if (config.message)
 		document.getElementById("message")!.textContent = config.message;
 

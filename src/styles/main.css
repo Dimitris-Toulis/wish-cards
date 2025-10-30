@@ -7,12 +7,17 @@ body {
 	height: 100dvh;
 	flex-direction: column;
 }
+#wish-container {
+	display: flex;
+	flex-direction: column;
+	place-items: center;
+}
 #wish {
 	font-size: clamp(4rem, 13vw, 7rem);
 	text-align: center;
-	/*animation: wish-rainbow 1s linear infinite;
-	color: #e74b1a;*/
 	margin: 0;
+	max-width: 90dvw;
+	word-wrap: break-word;
 }
 @keyframes wish-rainbow {
 	from {
@@ -25,6 +30,11 @@ body {
 #message {
 	text-align: center;
 	font-size: clamp(1rem, 4vw, 1.7rem);
+	max-width: 70dvw;
+	border: 1px dashed white;
+	border-radius: 20px;
+	padding: 20px;
+	word-wrap: break-word;
 }
 #effects {
 	display: flex;

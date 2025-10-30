@@ -13,7 +13,7 @@ const IDSchema = z.string().length(8);
 
 const cardConfig = z
 	.object({
-		wish: z.string().max(100).min(1),
+		wish: z.string().max(50).min(1),
 		message: z
 			.string()
 			.max(250)
