@@ -27,7 +27,7 @@ const cardConfig = z
 					z.object({
 						name: z.literal("confetti"),
 						onOpen: z.boolean().default(false),
-						amount: z.number().max(3000).min(100).default(1500)
+						amount: z.number().max(5000).min(100).default(1500)
 					}),
 					z.object({
 						name: z.literal("fireworks"),

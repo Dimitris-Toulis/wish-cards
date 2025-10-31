@@ -13,11 +13,13 @@ body {
 	place-items: center;
 }
 #wish {
-	font-size: clamp(4rem, 13vw, 7rem);
+	--font-scale: 1;
+	font-size: clamp(3.5rem * var(--font-scale), 15vw * var(--font-scale), 7rem);
 	text-align: center;
 	margin: 0;
 	max-width: 90dvw;
 	word-wrap: break-word;
+	user-select: none;
 }
 @keyframes wish-rainbow {
 	from {

@@ -87,6 +87,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	const wishElement = document.getElementById("wish")!;
 	wishElement.textContent = config.wish;
+	if (config.wish.length > 30)
+		wishElement.style.setProperty("--font-scale", "0.75");
 
 	document.title = config.wish;
 	if (config.message) {
