@@ -32,21 +32,24 @@
 				<hr />
 				<h2>Card customization</h2>
 				<div>
-					<label for="wishColor">Wish Color</label>
+					<label>Wish Color</label>
+					<label>
+						<input
+							name="wishColorType"
+							type="radio"
+							checked
+							id="rainbow-wish"
+							value="rainbow"
+						/>
+						Rainbow</label
+					>
 					<div class="color-choice">
-						<label>
-							<input
-								name="wishColorType"
-								type="radio"
-								checked
-								id="rainbow-wish"
-								value="rainbow"
-							/>
-							Rainbow</label
-						>
-					</div>
-					<div class="color-choice">
-						<input name="wishColorType" type="radio" value="color" />
+						<input
+							name="wishColorType"
+							id="wish-color-specific"
+							type="radio"
+							value="color"
+						/>
 						<input
 							type="color"
 							name="wishColor"

@@ -65,4 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		window.location.href =
 			window.origin + "/v?config=" + encodeURIComponent(JSON.stringify(config));
 	});
+	document.getElementById("wishColor")?.addEventListener("click", () => {
+		(
+			document.getElementById("wish-color-specific")! as HTMLInputElement
+		).checked = true;
+	});
 });
