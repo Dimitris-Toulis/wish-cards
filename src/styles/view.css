@@ -6,6 +6,7 @@ body {
 	justify-content: center;
 	height: 100dvh;
 	flex-direction: column;
+	margin: 0;
 }
 #wish-container {
 	display: flex;
