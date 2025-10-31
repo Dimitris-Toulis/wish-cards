@@ -56,7 +56,7 @@ const cardConfig = z
 export type Config = z.infer<typeof cardConfig>;
 
 export default {
-	async fetch(request, env) {
+	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
 
 		if (url.pathname === "/api/card" && request.method == "POST") {
@@ -83,6 +83,10 @@ export default {
 			}
 		} else if (url.pathname === "/api/card" && request.method == "GET") {
 			try {
+				const cache = await caches.open("cards-config");
+				let response = await cache.match(request);
+				if (response) return response;
+
 				const id = url.searchParams.get("id");
 				const result = IDSchema.safeParse(id);
 				if (!result.success) {
@@ -94,12 +98,20 @@ export default {
 					const id = result.data;
 					const data = await env.KV.get(id);
 					if (data == null) {
-						return new Response(JSON.stringify({ error: "Card not found" }), {
-							status: 404
-						});
+						const response = new Response(
+							JSON.stringify({ error: "Card not found" }),
+							{
+								status: 404
+							}
+						);
+						ctx.waitUntil(cache.put(request, response.clone()));
+						return response;
 					}
 					return new Response(JSON.stringify({ config: JSON.parse(data) }), {
-						headers: { "Content-Type": "application/json" }
+						headers: {
+							"Content-Type": "application/json",
+							"Cache-Control": "public, max-age=7889400, immutable"
+						}
 					});
 				}
 			} catch (err) {
