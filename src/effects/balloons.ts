@@ -25,6 +25,9 @@ export async function effect(opts: { amount?: number }) {
 	const amount = opts.amount ?? 30;
 	const animations = [];
 	const balloons = [];
+	const reducedMotion =
+		window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+
 	for (let i = 0; i < amount; i++) {
 		const balloon = document.createElement("div");
 
@@ -37,7 +40,7 @@ export async function effect(opts: { amount?: number }) {
 				await balloon.animate(
 					[{ transform: "scale(1)" }, { transform: "scale(0)" }],
 					{
-						duration: 200,
+						duration: (reducedMotion ? 3 : 1) * 200,
 						fill: "forwards",
 						easing: "cubic-bezier(0.36, 0, 0.66, -0.56)",
 						composite: "add"
@@ -54,7 +57,8 @@ export async function effect(opts: { amount?: number }) {
 					origin: {
 						y: (rect.top + rect.bottom) / 2 / window.innerHeight,
 						x: (rect.right + rect.left) / 2 / window.innerWidth
-					}
+					},
+					disableForReducedMotion: false
 				});
 				balloon.getAnimations().forEach((anim) => anim.cancel());
 			},
@@ -77,7 +81,8 @@ export async function effect(opts: { amount?: number }) {
 					}
 				],
 				{
-					duration: getRandomIntInclusive(9000, 13000),
+					duration:
+						(reducedMotion ? 3 : 1) * getRandomIntInclusive(9000, 13000),
 					fill: "forwards",
 					easing: "ease-in"
 				}

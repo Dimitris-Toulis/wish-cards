@@ -106,12 +106,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 		wishElement.style.color = config.wishColor;
 	}
 
+	const reducedMotion =
+		window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+
 	const effects = await Promise.allSettled(
 		config.effects.map(async (opts) => {
 			const { name, onOpen } = opts;
 			if (Object.hasOwn(EFFECTS, name)) {
 				const effect = await loadEffect(name as keyof typeof EFFECTS);
-				if (onOpen) effect(opts);
+				if (onOpen && !reducedMotion) effect(opts);
 				return () => effect(opts);
 			} else {
 				return Promise.reject(null);
