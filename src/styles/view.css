@@ -46,6 +46,13 @@ body {
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-block-start: 20px;
+	min-height: 102px;
+	align-content: center;
+}
+@media (min-width: 367px) {
+	#effects {
+		min-height: 61px;
+	}
 }
 .effect {
 	outline: none;
