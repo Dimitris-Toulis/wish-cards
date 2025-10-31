@@ -1,4 +1,4 @@
-import { showMessage } from "./modal";
+import { showMessage } from "./components/modal";
 import "./styles/create.scss";
 
 function getConfig(form: HTMLFormElement) {
