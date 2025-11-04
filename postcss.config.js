@@ -4,7 +4,8 @@ export default {
 	plugins: [
 		purgeCSSPlugin({
 			content: ["./**/*.html"],
-			variables: true
+			variables: true,
+			safelist: ["balloon", "balloon-container"]
 		})
 	]
 };
