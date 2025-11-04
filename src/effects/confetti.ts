@@ -16,7 +16,7 @@ export async function effect(opts: { amount?: number }) {
 			spread: 60,
 			startVelocity: getRandomInRange(45, 65),
 			drift: 0.1,
-			ticks: 150,
+			ticks: 500,
 			disableForReducedMotion: false // Auto running is disabled but button could be used
 		};
 		await Promise.allSettled([
